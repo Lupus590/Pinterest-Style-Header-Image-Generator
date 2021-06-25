@@ -39,6 +39,7 @@
                 transform: "rotate(" + inputs.InnerRotation.val() + "deg) translate(" + inputs.InnerOffsetX.val() + "px," +  inputs.InnerOffsetY.val() + "px)"
             });
     
+            // TODO: improve, probably with trig
             let rotateHeight = Math.sqrt(Number(inputs.OuterHeight.val())*Number(inputs.OuterHeight.val())+Number(inputs.OuterWidth.val())*Number(inputs.OuterWidth.val()));
             let rotateWidth = rotateHeight;
             
@@ -51,7 +52,7 @@
                 let newColumn = "<div class=\"column\">";
                 for (let j = 0; j < innerFrameCount; j++ ){
                     newColumn = newColumn+"<div class=\"innerFrame\"></div>";
-                    count = count++;
+                    count = count+1;
                 }
                 
                 newColumn = newColumn+"</div>";
