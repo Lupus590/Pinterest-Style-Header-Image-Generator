@@ -1,0 +1,23 @@
+.outerFrame {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.rotate {
+    transform-origin: center;
+    display: flex;
+}
+
+.column {
+    float: left;
+}
+
+.innerFrame {    
+    float: left;
+}
+
+img {
+    width:inherit;
+    height:inherit;
+    object-fit: cover;    
+}
