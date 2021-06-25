@@ -59,8 +59,8 @@
             }
             imageCount.val(count);
         
-            $(".innerFrame").each(function(_, iFrane){
-                $(iFrane).css({
+            $(".innerFrame").each(function(){
+                $(this).css({
                     height: inputs.InnerHeight.val() + "px",
                     width: inputs.InnerWidth.val() + "px",
                     "background-color": inputs.InnerColour.val(),
@@ -69,8 +69,8 @@
                 });
             });
     
-            $(".column").each(function(_, col){
-                $(col).css({
+            $(".column").each(function(){
+                $(this).css({
                     width: inputs.InnerWidth.val() + "px",
                     margin: inputs.InnerGap.val() + "px",
                 });
@@ -79,8 +79,8 @@
     
         processInputs();
     
-        $.each(inputs, function(_, val){
-            $(val).change(processInputs);
+        $.each(inputs, function(){
+            $(this).change(processInputs);
         });
     };
     //$.when( $.ready ).then(main);
