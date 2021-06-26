@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */ 
+// TODO: fix spaghetti code
 (function($){    
     let main = function(){
         let inputs = {
