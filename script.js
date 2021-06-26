@@ -53,7 +53,6 @@
                 for (let j = 0; j < innerFrameCount; j++ ){
                     let imgSrc = "";
                     if(images.length > 0){
-                        console.log(images[img]);
                         imgSrc = URL.createObjectURL(images[img]);
                     }
                     newColumn = newColumn+"<div class=\"innerFrame\"><img src=" + imgSrc + "></div>";
@@ -79,6 +78,7 @@
                 });
             });
     
+            // TODO: offset every other column so that its more like bricks in a wall instead of american roads
             $(".column").each(function(){
                 $(this).css({
                     width: inputs.InnerWidth.val() + "px",
