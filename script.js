@@ -12,18 +12,11 @@
             InnerRotation: $("#InnerRotation"),
             InnerGap: $("#InnerGap"),
             InnerOffsetX: $("#InnerOffsetX"),
-            InnerOffsetY: $("#InnerOffsetY")
-        };
-    
-        let imageListLocation = "/imgList.txt";
-        let imageList = [];
-    
-        let loadImages = function(){
-    
+            InnerOffsetY: $("#InnerOffsetY"),
+            ImageFiles: $("#ImageFiles")
         };
         
         let imageCount = $("#ImageCount");
-        $("#LoadImages").click(loadImages);
     
         let outerFrame = $("#outerFrame");
         let rotate = $("#rotate");
@@ -84,7 +77,5 @@
             $(this).change(processInputs);
         });
     };
-    //$.when( $.ready ).then(main);
-    //$(document).ready(main);
     main();
 })(jQuery);
