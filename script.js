@@ -13,7 +13,8 @@
             InnerGap: $("#InnerGap"),
             InnerOffsetX: $("#InnerOffsetX"),
             InnerOffsetY: $("#InnerOffsetY"),
-            ImageFiles: $("#ImageFiles")
+            ImageFiles: $("#ImageFiles"),
+            BrickLikeLayout: $("#BrickLikeLayout")
         };
         
         let imageCount = $("#ImageCount");
@@ -41,6 +42,7 @@
             let innerFrameCount = Math.ceil(rotateHeight/(Number(inputs.InnerHeight.val())+Number(inputs.InnerGap.val())));
             let columnCount = Math.ceil(rotateWidth/(Number(inputs.InnerWidth.val())+Number(inputs.InnerGap.val())));
 
+            images = [];
             $.each(inputs.ImageFiles[0].files, function(){
                 images[images.length] = this;
             });
@@ -78,11 +80,20 @@
                 });
             });
     
-            // TODO: offset every other column so that its more like bricks in a wall instead of american roads
+            let brickToggler = false;
             $(".column").each(function(){
+                let topMargin = "0px";
+                if(inputs.BrickLikeLayout.prop("checked")){
+                    if(brickToggler){
+                        topMargin = (Number(inputs.InnerHeight.val())/2) + "px";
+                    }
+                    brickToggler = !brickToggler;
+                }
+
                 $(this).css({
                     width: inputs.InnerWidth.val() + "px",
                     margin: inputs.InnerGap.val() + "px",
+                    "margin-top": topMargin
                 });
             });
         };
