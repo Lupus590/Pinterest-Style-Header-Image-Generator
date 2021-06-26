@@ -20,6 +20,8 @@
     
         let outerFrame = $("#outerFrame");
         let rotate = $("#rotate");
+
+        let images = [];
     
         let processInputs = function(){
             outerFrame.css({
@@ -38,14 +40,28 @@
             
             let innerFrameCount = Math.ceil(rotateHeight/(Number(inputs.InnerHeight.val())+Number(inputs.InnerGap.val())));
             let columnCount = Math.ceil(rotateWidth/(Number(inputs.InnerWidth.val())+Number(inputs.InnerGap.val())));
+
+            $.each(inputs.ImageFiles[0].files, function(){
+                images[images.length] = this;
+            });
     
             rotate.empty(); // TODO: avoid doing
             let count = 0;
+            let img = 0;
             for (let i = 0; i < columnCount; i++ ){
                 let newColumn = "<div class=\"column\">";
                 for (let j = 0; j < innerFrameCount; j++ ){
-                    newColumn = newColumn+"<div class=\"innerFrame\"></div>";
+                    let imgSrc = "";
+                    if(images.length > 0){
+                        console.log(images[img]);
+                        imgSrc = URL.createObjectURL(images[img]);
+                    }
+                    newColumn = newColumn+"<div class=\"innerFrame\"><img src=" + imgSrc + "></div>";
                     count = count+1;
+                    img = img + 1;
+                    if( img >= images.length){
+                        img = 0;
+                    }
                 }
                 
                 newColumn = newColumn+"</div>";
